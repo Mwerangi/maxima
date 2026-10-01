@@ -93,6 +93,13 @@ export default function AboutPage() {
               <p className="font-medium text-ink">
                 Maxima is an integrated logistics and business solutions group.
               </p>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/media/howo-fleet-terminal.webp"
+                alt="Maxima truck fleet at the container terminal"
+                loading="lazy"
+                className="!mt-10 w-full border border-line object-cover"
+              />
             </div>
           </Reveal>
         </div>

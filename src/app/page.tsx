@@ -80,7 +80,7 @@ export default function Home() {
 
       {/* ── Group intro ── */}
       <section className="border-t border-line px-6 py-28 lg:px-10">
-        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-2">
+        <div className="mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-2">
           <Reveal>
             <SectionLabel>The Group</SectionLabel>
             <h2 className="mt-6 text-4xl font-bold leading-tight tracking-tight lg:text-5xl">
@@ -90,9 +90,7 @@ export default function Home() {
               <br />
               One Supply Chain.
             </h2>
-          </Reveal>
-          <Reveal delay={120}>
-            <div className="space-y-5 text-base leading-relaxed text-ink-soft lg:pt-14">
+            <div className="mt-8 space-y-5 text-base leading-relaxed text-ink-soft">
               <p>
                 Established in 2011 through the development of Maxima Clearing
                 &amp; Forwarding Ltd, the Group has grown from its core
@@ -108,6 +106,20 @@ export default function Home() {
                 transportation, to technology-enabled logistics management.
               </p>
             </div>
+          </Reveal>
+          <Reveal delay={120}>
+            <figure className="relative">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/media/maxima-truck-yard.webp"
+                alt="Maxima truck and team working in the container yard"
+                loading="lazy"
+                className="w-full border border-line object-cover"
+              />
+              <figcaption className="mt-4 font-mono text-[11px] tracking-[0.25em] text-ink-soft">
+                MAXIMA OPERATIONS — CONTAINER YARD, DAR ES SALAAM
+              </figcaption>
+            </figure>
           </Reveal>
         </div>
       </section>

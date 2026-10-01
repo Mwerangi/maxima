@@ -3,6 +3,11 @@ export type ServiceGroup = {
   items: string[];
 };
 
+export type Media = {
+  src: string;
+  alt: string;
+};
+
 export type Terminal = {
   number: string;
   name: string;
@@ -10,6 +15,7 @@ export type Terminal = {
   location: string;
   description: string;
   capabilities: string[];
+  image: Media;
 };
 
 export type Company = {
@@ -22,6 +28,7 @@ export type Company = {
   description: string[];
   serviceGroups: ServiceGroup[];
   note?: string;
+  heroImage?: Media;
 };
 
 export const companies: Company[] = [
@@ -84,6 +91,10 @@ export const companies: Company[] = [
       },
     ],
     note: "The company also supports specialized logistics requirements, including perishable and temperature-sensitive cargo.",
+    heroImage: {
+      src: "/media/truck-loading.webp",
+      alt: "Truck being loaded in an industrial cargo yard",
+    },
   },
   {
     slug: "transport",
@@ -127,6 +138,10 @@ export const companies: Company[] = [
       },
     ],
     note: "Maxima Transport focuses on standard containerized, general and commercial cargo movements. The company does not currently provide abnormal/oversized machinery transportation or fuel-tanker transportation.",
+    heroImage: {
+      src: "/media/maxima-fleet-port.webp",
+      alt: "Maxima branded truck fleet lined up at an industrial port",
+    },
   },
   {
     slug: "terminal",
@@ -175,6 +190,10 @@ export const companies: Company[] = [
         ],
       },
     ],
+    heroImage: {
+      src: "/media/port-yard-stacker.webp",
+      alt: "Maxima terminal yard with reach stacker handling containers",
+    },
   },
   {
     slug: "solutions",
@@ -269,6 +288,10 @@ export const terminals: Terminal[] = [
       "Customs & inspection coordination",
       "Transportation coordination",
     ],
+    image: {
+      src: "/media/stacker-port.webp",
+      alt: "Reach stacker lifting a container at the Kurasini terminal",
+    },
   },
   {
     number: "T2",
@@ -289,6 +312,10 @@ export const terminals: Terminal[] = [
       "Gate operations",
       "Transportation coordination",
     ],
+    image: {
+      src: "/media/container-handler.webp",
+      alt: "Container handler working the Mtwara terminal yard",
+    },
   },
   {
     number: "T3",
@@ -310,6 +337,10 @@ export const terminals: Terminal[] = [
       "Gate operations",
       "Inspection coordination",
     ],
+    image: {
+      src: "/media/stacker-yard.webp",
+      alt: "Reach stacker moving containers in a bright container yard",
+    },
   },
 ];
 

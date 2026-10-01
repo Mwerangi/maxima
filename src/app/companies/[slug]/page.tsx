@@ -31,6 +31,7 @@ export default async function CompanyPage({
   const index = companies.findIndex((c) => c.slug === slug);
   const next = companies[(index + 1) % companies.length];
   const isTerminal = company.slug === "terminal";
+  const isTransport = company.slug === "transport";
 
   return (
     <>
@@ -53,6 +54,22 @@ export default async function CompanyPage({
           </Reveal>
         </div>
       </section>
+
+      {/* ── Hero image band ── */}
+      {company.heroImage && (
+        <section className="relative">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={company.heroImage.src}
+            alt={company.heroImage.alt}
+            className="h-[42vh] w-full object-cover lg:h-[56vh]"
+          />
+          <div
+            aria-hidden
+            className="absolute inset-0 bg-gradient-to-t from-ink/35 to-transparent"
+          />
+        </section>
+      )}
 
       {/* ── Description ── */}
       <section className="border-t border-line px-6 py-24 lg:px-10">
@@ -88,6 +105,13 @@ export default async function CompanyPage({
                       {t.number}
                     </span>
                     <div>
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={t.image.src}
+                        alt={t.image.alt}
+                        loading="lazy"
+                        className="mb-6 aspect-video w-full border border-line-dark object-cover"
+                      />
                       <h3 className="text-xl font-semibold tracking-tight">
                         {t.name}
                       </h3>
@@ -173,6 +197,88 @@ export default async function CompanyPage({
           )}
         </div>
       </section>
+
+      {/* ── Operations in motion (terminal) ── */}
+      {isTerminal && (
+        <section className="px-6 py-28 lg:px-10">
+          <div className="mx-auto max-w-7xl">
+            <Reveal>
+              <SectionLabel>Operations in Motion</SectionLabel>
+            </Reveal>
+            <div className="mt-14 grid gap-10 lg:grid-cols-[1.6fr_1fr]">
+              <Reveal>
+                <figure>
+                  <video
+                    src="/media/weighbridge.mp4"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="metadata"
+                    className="w-full border border-line object-cover"
+                  />
+                  <figcaption className="mt-4 font-mono text-[11px] tracking-[0.25em] text-ink-soft">
+                    WEIGHBRIDGE OPERATIONS
+                  </figcaption>
+                </figure>
+              </Reveal>
+              <Reveal delay={100}>
+                <figure>
+                  <video
+                    src="/media/stuffing.mp4"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="metadata"
+                    className="mx-auto max-h-[480px] border border-line"
+                  />
+                  <figcaption className="mt-4 text-center font-mono text-[11px] tracking-[0.25em] text-ink-soft">
+                    CONTAINER STUFFING
+                  </figcaption>
+                </figure>
+              </Reveal>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ── Fleet in motion (transport) ── */}
+      {isTransport && (
+        <section className="px-6 py-28 lg:px-10">
+          <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[1fr_1.4fr]">
+            <Reveal>
+              <figure>
+                <video
+                  src="/media/fleet.mp4"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                  className="mx-auto max-h-[520px] border border-line"
+                />
+                <figcaption className="mt-4 text-center font-mono text-[11px] tracking-[0.25em] text-ink-soft">
+                  THE MAXIMA FLEET ON THE MOVE
+                </figcaption>
+              </figure>
+            </Reveal>
+            <Reveal delay={120}>
+              <SectionLabel>Integrated Transport Operations</SectionLabel>
+              <h2 className="mt-6 text-3xl font-bold tracking-tight lg:text-4xl">
+                One fleet, connected to the whole supply chain.
+              </h2>
+              <p className="mt-6 max-w-xl leading-relaxed text-ink-soft">
+                Because Maxima Transport operates within the wider Maxima
+                Group, transportation is coordinated with freight forwarding,
+                customs clearance and terminal operations — reducing
+                unnecessary hand-offs between multiple service providers and
+                giving customers a more connected logistics process.
+              </p>
+            </Reveal>
+          </div>
+        </section>
+      )}
 
       {/* ── Next company ── */}
       <section className="px-6 py-24 lg:px-10">
