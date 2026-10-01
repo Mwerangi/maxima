@@ -57,17 +57,15 @@ export default async function CompanyPage({
 
       {/* ── Hero image band ── */}
       {company.heroImage && (
-        <section className="relative">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={company.heroImage.src}
-            alt={company.heroImage.alt}
-            className="w-full"
-          />
-          <div
-            aria-hidden
-            className="absolute inset-0 bg-gradient-to-t from-ink/35 to-transparent"
-          />
+        <section className="px-6 lg:px-10">
+          <div className="mx-auto max-w-7xl">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={company.heroImage.src}
+              alt={company.heroImage.alt}
+              className="aspect-[21/9] w-full border border-line object-cover object-center md:aspect-[3/1]"
+            />
+          </div>
         </section>
       )}
 
