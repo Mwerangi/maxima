@@ -100,18 +100,18 @@ export default async function CompanyPage({
             <div className="mt-16 space-y-px bg-line-dark">
               {terminals.map((t, i) => (
                 <Reveal key={t.number} delay={i * 80}>
-                  <div className="grid gap-8 bg-ink py-10 lg:grid-cols-[100px_1.2fr_1.6fr] lg:py-12">
+                  <div className="grid gap-8 bg-ink py-10 lg:grid-cols-[80px_0.8fr_1.1fr_1.4fr] lg:py-12">
                     <span className="font-mono text-2xl text-accent">
                       {t.number}
                     </span>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={t.image.src}
+                      alt={t.image.alt}
+                      loading="lazy"
+                      className="w-full max-w-sm self-start border border-line-dark"
+                    />
                     <div>
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
-                        src={t.image.src}
-                        alt={t.image.alt}
-                        loading="lazy"
-                        className="mb-6 aspect-video w-full border border-line-dark object-cover"
-                      />
                       <h3 className="text-xl font-semibold tracking-tight">
                         {t.name}
                       </h3>
