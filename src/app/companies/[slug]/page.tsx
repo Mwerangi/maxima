@@ -62,7 +62,7 @@ export default async function CompanyPage({
           <img
             src={company.heroImage.src}
             alt={company.heroImage.alt}
-            className="h-[42vh] w-full object-cover lg:h-[56vh]"
+            className="w-full"
           />
           <div
             aria-hidden
