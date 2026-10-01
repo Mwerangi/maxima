@@ -29,6 +29,7 @@ export type Company = {
   serviceGroups: ServiceGroup[];
   note?: string;
   heroImage?: Media;
+  gallery?: { portrait: Media; landscapes: Media[] };
 };
 
 export const companies: Company[] = [
@@ -92,8 +93,24 @@ export const companies: Company[] = [
     ],
     note: "The company also supports specialized logistics requirements, including perishable and temperature-sensitive cargo.",
     heroImage: {
-      src: "/media/truck-loading.webp",
-      alt: "Truck being loaded in an industrial cargo yard",
+      src: "/media/clearing-1.webp",
+      alt: "Reach stacker loading a container onto a Maxima truck at the yard",
+    },
+    gallery: {
+      portrait: {
+        src: "/media/container-handler.webp",
+        alt: "SANY empty container handler working the port yard",
+      },
+      landscapes: [
+        {
+          src: "/media/stacker-port-2.webp",
+          alt: "Reach stacker moving a container at the port",
+        },
+        {
+          src: "/media/howo-fleet-terminal.webp",
+          alt: "HOWO truck fleet staged at the container terminal",
+        },
+      ],
     },
   },
   {
@@ -289,8 +306,8 @@ export const terminals: Terminal[] = [
       "Transportation coordination",
     ],
     image: {
-      src: "/media/stacker-port.webp",
-      alt: "Reach stacker lifting a container at the Kurasini terminal",
+      src: "/media/yard-1.webp",
+      alt: "Maxima truck and team in the container yard at the Kurasini terminal",
     },
   },
   {
@@ -313,8 +330,8 @@ export const terminals: Terminal[] = [
       "Transportation coordination",
     ],
     image: {
-      src: "/media/container-handler.webp",
-      alt: "Container handler working the Mtwara terminal yard",
+      src: "/media/mtwara-2.webp",
+      alt: "Maxima Mtwara terminal — weighbridge, office and container yard",
     },
   },
   {
@@ -338,8 +355,8 @@ export const terminals: Terminal[] = [
       "Inspection coordination",
     ],
     image: {
-      src: "/media/stacker-yard.webp",
-      alt: "Reach stacker moving containers in a bright container yard",
+      src: "/media/terminal-3-kurasini.webp",
+      alt: "Maxima Terminal 3 facility at Kurasini, Dar es Salaam",
     },
   },
 ];

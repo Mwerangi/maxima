@@ -241,21 +241,32 @@ export default function Home() {
 
       {/* ── Industries ── */}
       <section className="px-6 py-28 lg:px-10">
-        <div className="mx-auto max-w-7xl">
-          <Reveal>
-            <SectionLabel>Industries We Serve</SectionLabel>
+        <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[1.3fr_1fr]">
+          <Reveal delay={150} className="order-last lg:order-first">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/media/truck-loading.webp"
+              alt="Cargo being loaded onto a truck in the industrial yard"
+              loading="lazy"
+              className="w-full border border-line shadow-[0_24px_60px_-24px_rgba(11,14,19,0.35)]"
+            />
           </Reveal>
-          <div className="mt-12 flex flex-wrap gap-3">
-            {industries.map((ind, i) => (
-              <Reveal key={ind.name} delay={i * 40}>
-                <Link
-                  href="/industries"
-                  className="inline-block border border-line px-5 py-2.5 text-sm text-ink-soft transition-colors hover:border-accent hover:text-accent"
-                >
-                  {ind.name}
-                </Link>
-              </Reveal>
-            ))}
+          <div>
+            <Reveal>
+              <SectionLabel>Industries We Serve</SectionLabel>
+            </Reveal>
+            <div className="mt-12 flex flex-wrap gap-3">
+              {industries.map((ind, i) => (
+                <Reveal key={ind.name} delay={i * 40}>
+                  <Link
+                    href="/industries"
+                    className="inline-block border border-line px-5 py-2.5 text-sm text-ink-soft transition-colors hover:border-accent hover:text-accent"
+                  >
+                    {ind.name}
+                  </Link>
+                </Reveal>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -266,20 +277,31 @@ export default function Home() {
           <Reveal>
             <SectionLabel>Why Maxima</SectionLabel>
           </Reveal>
-          <div className="mt-14 grid gap-x-12 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
-            {whyMaxima.map((w, i) => (
-              <Reveal key={w.title} delay={i * 60}>
-                <div>
-                  <span className="font-mono text-xs text-accent">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <h3 className="mt-3 text-lg font-semibold">{w.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-ink-soft">
-                    {w.text}
-                  </p>
-                </div>
-              </Reveal>
-            ))}
+          <div className="mt-14 grid items-center gap-12 lg:grid-cols-[1fr_2fr]">
+            <Reveal className="hidden lg:block">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/media/stacker-yard.webp"
+                alt="Reach stacker stacking containers in the Maxima yard"
+                loading="lazy"
+                className="w-full border border-line shadow-[0_24px_60px_-24px_rgba(11,14,19,0.35)]"
+              />
+            </Reveal>
+            <div className="grid gap-x-12 gap-y-12 sm:grid-cols-2">
+              {whyMaxima.map((w, i) => (
+                <Reveal key={w.title} delay={i * 60}>
+                  <div>
+                    <span className="font-mono text-xs text-accent">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <h3 className="mt-3 text-lg font-semibold">{w.title}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-ink-soft">
+                      {w.text}
+                    </p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
           </div>
         </div>
       </section>

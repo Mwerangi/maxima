@@ -55,28 +55,22 @@ export default async function CompanyPage({
         </div>
       </section>
 
-      {/* ── Hero image band ── */}
-      {company.heroImage && (
-        <section className="px-6 lg:px-10">
-          <div className="mx-auto max-w-7xl">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={company.heroImage.src}
-              alt={company.heroImage.alt}
-              className="aspect-[21/9] w-full border border-line object-cover object-center md:aspect-[3/1]"
-            />
-          </div>
-        </section>
-      )}
-
-      {/* ── Description ── */}
+      {/* ── Overview (with company image) ── */}
       <section className="border-t border-line px-6 py-24 lg:px-10">
-        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1fr_1.4fr]">
-          <Reveal>
+        <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[35fr_65fr]">
+          {company.heroImage && (
+            <Reveal className="lg:order-2">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={company.heroImage.src}
+                alt={company.heroImage.alt}
+                className="w-full border border-line shadow-[0_24px_60px_-24px_rgba(11,14,19,0.35)]"
+              />
+            </Reveal>
+          )}
+          <Reveal delay={120} className="lg:order-1">
             <SectionLabel>Overview</SectionLabel>
-          </Reveal>
-          <Reveal delay={120}>
-            <div className="space-y-5 text-base leading-relaxed text-ink-soft">
+            <div className="mt-8 space-y-5 text-base leading-relaxed text-ink-soft">
               {company.description.map((p) => (
                 <p key={p.slice(0, 32)}>{p}</p>
               ))}
@@ -92,13 +86,13 @@ export default async function CompanyPage({
             <Reveal>
               <SectionLabelDark>Our Terminal Network</SectionLabelDark>
               <h2 className="mt-6 max-w-2xl text-3xl font-bold tracking-tight lg:text-4xl">
-                Three facilities. Two strategic locations.
+                Three facilities. Three strategic locations.
               </h2>
             </Reveal>
             <div className="mt-16 space-y-px bg-line-dark">
               {terminals.map((t, i) => (
                 <Reveal key={t.number} delay={i * 80}>
-                  <div className="grid gap-8 bg-ink py-10 lg:grid-cols-[80px_0.8fr_1.1fr_1.4fr] lg:py-12">
+                  <div className="grid gap-8 bg-ink py-10 lg:grid-cols-[60px_1.35fr_1fr_1fr] lg:py-14">
                     <span className="font-mono text-2xl text-accent">
                       {t.number}
                     </span>
@@ -107,7 +101,7 @@ export default async function CompanyPage({
                       src={t.image.src}
                       alt={t.image.alt}
                       loading="lazy"
-                      className="w-full max-w-sm self-start border border-line-dark"
+                      className="w-full self-center border border-line-dark shadow-[0_24px_60px_-24px_rgba(0,0,0,0.6)]"
                     />
                     <div>
                       <h3 className="text-xl font-semibold tracking-tight">
@@ -274,6 +268,41 @@ export default async function CompanyPage({
                 giving customers a more connected logistics process.
               </p>
             </Reveal>
+          </div>
+        </section>
+      )}
+
+      {/* ── Gallery ── */}
+      {company.gallery && (
+        <section className="px-6 py-28 lg:px-10">
+          <div className="mx-auto max-w-7xl">
+            <Reveal>
+              <SectionLabel>On the Ground</SectionLabel>
+            </Reveal>
+            <div className="mt-14 grid gap-6 lg:grid-cols-[1fr_1.6fr]">
+              <Reveal>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={company.gallery.portrait.src}
+                  alt={company.gallery.portrait.alt}
+                  loading="lazy"
+                  className="w-full border border-line shadow-[0_24px_60px_-24px_rgba(11,14,19,0.35)]"
+                />
+              </Reveal>
+              <div className="grid content-between gap-6">
+                {company.gallery.landscapes.map((img, i) => (
+                  <Reveal key={img.src} delay={(i + 1) * 100}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={img.src}
+                      alt={img.alt}
+                      loading="lazy"
+                      className="w-full border border-line shadow-[0_24px_60px_-24px_rgba(11,14,19,0.35)]"
+                    />
+                  </Reveal>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
       )}
