@@ -1,0 +1,19 @@
+# Maxima Group — static site config for Apache shared hosting
+
+ErrorDocument 404 /404.html
+
+# Serve pre-rendered pages with correct charset
+AddDefaultCharset UTF-8
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript image/svg+xml
+</IfModule>
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  # Hashed build assets are immutable
+  <FilesMatch "\.(js|css|woff2)$">
+    ExpiresDefault "access plus 1 year"
+  </FilesMatch>
+  ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
